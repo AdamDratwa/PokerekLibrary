@@ -2,5 +2,6 @@
 {
     public class RuleService : IRulesService
     {
+
     }
 }

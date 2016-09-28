@@ -2,9 +2,9 @@
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class PokerRule : IRule
+    public class PokerRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             for (int i = 0; i < cards.Count - 1; i++)
             {
@@ -14,6 +14,11 @@ namespace PokerekLibrary.Domain.Rules
                 }
             }
             return true;
+        }
+
+        public override int Order
+        {
+            get { return 1; }
         }
     }
 }
