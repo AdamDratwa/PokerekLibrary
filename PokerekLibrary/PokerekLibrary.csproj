@@ -41,11 +41,17 @@
   <ItemGroup>
     <Compile Include="Domain\Card.cs" />
     <Compile Include="Domain\Colors.cs" />
+    <Compile Include="Domain\Extensions\ListExtensions.cs" />
     <Compile Include="Domain\Game.cs" />
     <Compile Include="Domain\Player.cs" />
+    <Compile Include="Domain\Rules\IRule.cs" />
+    <Compile Include="Domain\Rules\PokerRule.cs" />
+    <Compile Include="Domain\Rules\RulePredicates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\IRulesService.cs" />
+    <Compile Include="Services\RuleService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

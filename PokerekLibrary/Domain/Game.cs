@@ -36,14 +36,13 @@ namespace PokerekLibrary.Domain
 
         public void PutCards(int cardsCount)
         {
+            var random = new Random();
             for (int i = 1; i <= cardsCount; i++)
             {
-                var index = new Random(1); //Cards.Count();
+                var index = random.Next(Cards.Count);
                 var card = Cards.Pop(index);
                 CardsOnTable.Add(card);
             }
-            var cardsToPut = Cards.Take(cardsCount);
-            CardsOnTable.AddRange(cardsToPut);
         }
     }
 }
