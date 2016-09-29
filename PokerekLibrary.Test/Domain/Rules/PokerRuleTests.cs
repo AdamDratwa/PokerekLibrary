@@ -21,6 +21,7 @@ namespace PokerekLibrary.Test.Domain.Rules
         {
             yield return new TestCaseData(ValidPoker1(), true);
             yield return new TestCaseData(ValidPoker2(), true);
+            yield return new TestCaseData(ValidPoker3(), true);
             yield return new TestCaseData(InvalidPoker1(), false);
             yield return new TestCaseData(InvalidPoker2(), false);
             yield return new TestCaseData(InvalidPoker3(), false);
@@ -48,6 +49,17 @@ namespace PokerekLibrary.Test.Domain.Rules
             };
         }
 
+        private static List<Card> ValidPoker3()
+        {
+            return new List<Card>
+            {
+                new Card(2,Colors.KARO),
+                new Card(3,Colors.KARO),
+                new Card(4,Colors.KARO),
+                new Card(5,Colors.KARO),
+                new Card(14,Colors.KARO),
+            };
+        }
         private static List<Card> InvalidPoker1()
         {
             return new List<Card>

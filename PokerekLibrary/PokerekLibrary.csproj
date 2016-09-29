@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Card.cs" />
+    <Compile Include="Domain\CardNameValue.cs" />
     <Compile Include="Domain\Colors.cs" />
     <Compile Include="Domain\Extensions\ListExtensions.cs" />
+    <Compile Include="Domain\Figures.cs" />
     <Compile Include="Domain\Game.cs" />
     <Compile Include="Domain\Player.cs" />
     <Compile Include="Domain\Rules\IRule.cs" />
