@@ -6,7 +6,7 @@ namespace PokerekLibrary.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<Card> Hand { get; set; }
+        public List<Card> Hand { get; set; }
         public int Chips { get; set; }
         public int ChipsInGame { get; set; }
     }
