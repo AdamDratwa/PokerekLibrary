@@ -10,5 +10,10 @@ namespace PokerekLibrary.Domain
         public int Chips { get; set; }
         public int ChipsInGame { get; set; }
         public bool IsAllIn { get; set; }
+
+        public Player()
+        {
+            Hand = new List<Card>(2);
+        }
     }
 }

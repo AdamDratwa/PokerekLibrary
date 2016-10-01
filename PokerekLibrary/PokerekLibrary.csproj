@@ -49,11 +49,10 @@
     <Compile Include="Domain\Rules\FlushRule.cs" />
     <Compile Include="Domain\Rules\FourOfKindRule.cs" />
     <Compile Include="Domain\Rules\FullRule.cs" />
+    <Compile Include="Domain\Dictionaries\RulesList.cs" />
     <Compile Include="Domain\Rules\IRule.cs" />
-    <Compile Include="Domain\Rules\ListOfRules.cs" />
     <Compile Include="Domain\Rules\PairRule.cs" />
     <Compile Include="Domain\Rules\PokerRule.cs" />
-    <Compile Include="Domain\Rules\Rule.cs" />
     <Compile Include="Domain\Rules\RulePredicates.cs" />
     <Compile Include="Domain\Rules\StraightRule.cs" />
     <Compile Include="Domain\Rules\ThreeOfKindRule.cs" />

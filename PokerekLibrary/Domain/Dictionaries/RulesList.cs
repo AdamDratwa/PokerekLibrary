@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using PokerekLibrary.Domain.Rules;
 
-namespace PokerekLibrary.Domain.Rules
+namespace PokerekLibrary.Domain.Dictionaries
 {
-    public static class ListOfRules
+    public static class RulesList
     {
         public static List<IRule> Get()
         {

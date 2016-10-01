@@ -2,14 +2,14 @@
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class FullRule : Rule
+    public class FullRule : IRule
     {
-        public override bool IsTrue(List<Card> cards)
+        public bool IsTrue(List<Card> cards)
         {
             return RulePredicates.HaveDuplicates(cards, 2, 1);
         }
 
-        public override int Order
+        public int Order
         {
             get { return 3; }
         }

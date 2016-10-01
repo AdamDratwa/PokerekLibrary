@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using PokerekLibrary.Domain;
+using PokerekLibrary.Domain.Dictionaries;
 
 namespace PokerekLibrary.Services
 {
@@ -30,7 +31,10 @@ namespace PokerekLibrary.Services
 
         internal int GetHighestActivatedRuleValue(List<Card> playerHand, List<Card> cardsOnTable)
         {
-            throw new System.NotImplementedException();
+            var rules = RulesList.Get();
+            playerHand.AddRange(cardsOnTable);
+            var activatedRules = rules.Where(x => x.IsTrue(playerHand)).Select(x => x.Order);
+            return activatedRules.Min();
         }
     }
 }
