@@ -2,16 +2,16 @@
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class TwoPairsRule : Rule
+    public class ThreeOfKindRule : Rule
     {
         public override bool IsTrue(List<Card> cards)
         {
-            return RulePredicates.HaveDuplicates(cards, 2, 2);
+            return RulePredicates.HaveDuplicates(cards, 3, 1);
         }
 
         public override int Order
         {
-            get { return 7; }
+            get { return 6; }
         }
     }
 }

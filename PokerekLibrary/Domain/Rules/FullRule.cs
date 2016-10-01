@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class FullRule : IRule
+    public class FullRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
-            return RulePredicates.HaveDuplicates(cards, 2, 1) ;
+            return RulePredicates.HaveDuplicates(cards, 2, 1);
+        }
+
+        public override int Order
+        {
+            get { return 3; }
         }
     }
 }

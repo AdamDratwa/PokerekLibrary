@@ -16,7 +16,6 @@ namespace PokerekLibrary.Domain
         public Game(List<Player> players)
         {
             _players = players;
-            Stage = Stage.START;
             GetDeck();
         }
 
