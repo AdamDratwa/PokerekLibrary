@@ -11,10 +11,12 @@ namespace PokerekLibrary.Domain
         public int Stack { get; set; }
         public List<Card> CardsOnTable { get; set; }
         public List<Card> Cards { get; set; }
+        public Stage Stage { get; set; }
 
         public Game(List<Player> players)
         {
             _players = players;
+            Stage = Stage.START;
             GetDeck();
         }
 

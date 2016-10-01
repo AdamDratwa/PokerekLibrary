@@ -27,19 +27,29 @@ namespace PokerekLibrary.Services
             Players.Remove(player);
         }
 
-        public Player GetWinner()
+        public void NextRound()
         {
-            var result = Players.Select(x => new {
-               Player = x,
-               Value = _rulesService.GetHighestActivatedRuleValue(x.Hand, Game.CardsOnTable)
-            }).ToList();
-            var bestScore = result.Min(x => x.Value);
-            var playersWithBestScore = result.Where(x => x.Value == bestScore).Select(x => x.Player).ToList();
-            if (playersWithBestScore.Count() > 1)
+            switch (Game.Stage)
             {
-                
+                case Stage.FLOP:
+                    Game.PutCards(3);
+                    Game.Stage = Stage.RIVER;
+                    break;
+                case Stage.TURN:
+                    Game.PutCards(1);
+                    Game.Stage = Stage.RIVER;
+                    break;
+                case Stage.RIVER:
+                    Game.PutCards(1);
+                    break;
             }
-            return playersWithBestScore.FirstOrDefault();
+        }
+
+        public void HandOutStack()
+        {
+           var winners = _rulesService.GetWinners(Players, Game.CardsOnTable);
+           var price = Game.Stack/winners.Count;
+           winners.ForEach(x=> x.Chips += price);
         }
     }
 }

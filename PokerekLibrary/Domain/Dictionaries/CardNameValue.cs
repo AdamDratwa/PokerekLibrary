@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokerekLibrary.Domain
+namespace PokerekLibrary.Domain.Dictionaries
 {
     public static class CardNameValue
     {

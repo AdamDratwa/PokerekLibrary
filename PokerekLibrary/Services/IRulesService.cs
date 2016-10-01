@@ -5,6 +5,6 @@ namespace PokerekLibrary.Services
 {
     public interface IRulesService
     {
-        int GetHighestActivatedRuleValue(List<Card> playersCard, List<Card> cardOnTable);
+        List<Player> GetWinners(List<Player> players , List<Card> cardOnTable);
     }
 }
