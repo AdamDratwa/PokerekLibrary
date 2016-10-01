@@ -44,6 +44,9 @@ namespace PokerekLibrary.Test.Domain.Rules
         {
             return new List<Card>
             {
+                new Card(5,Colors.TREFL),
+                new Card(6,Colors.TREFL),
+                new Card(7,Colors.TREFL),
                 new Card(8,Colors.TREFL),
                 new Card(9,Colors.TREFL)
             };

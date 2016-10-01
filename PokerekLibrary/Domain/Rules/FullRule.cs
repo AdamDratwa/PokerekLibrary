@@ -6,7 +6,8 @@ namespace PokerekLibrary.Domain.Rules
     {
         public bool IsTrue(List<Card> cards)
         {
-            return RulePredicates.HaveDuplicates(cards, 2, 1);
+            //return RulePredicates.HaveDuplicates(cards, 2, 1);
+            return false;
         }
 
         public int Order

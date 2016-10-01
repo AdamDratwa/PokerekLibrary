@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Predicates = System.Collections.Generic.List<System.Func<System.Collections.Generic.List<PokerekLibrary.Domain.Card>, int, bool>>;
+using Predicates = System.Collections.Generic.List<System.Func<System.Collections.Generic.List<PokerekLibrary.Domain.Card>, bool>>;
 
 namespace PokerekLibrary.Domain.Rules
 {
     public class StraightRule : IRule
     {
         private readonly Predicates _predicates;
-        public StraightRule(Func<List<Card>, int, bool> predicate = null)
+        public StraightRule(Func<List<Card>, bool> predicate = null)
         {
             _predicates = new Predicates {RulePredicates.CardsInOrder};
             if (predicate != null)
@@ -32,19 +32,12 @@ namespace PokerekLibrary.Domain.Rules
 
         private bool CheckRule(List<Card> cards, Predicates predicates)
         {
-            for (int i = 0; i < cards.Count - 1; i++)
+            var allTrue = predicates.Select(x => new
             {
-                var allTrue = predicates.Select(x => new
-                {
-                    IsTrue = x.Invoke(cards, i)                
-                });
+                IsTrue = x.Invoke(cards)                
+            });
 
-                if (allTrue.Any(x => !x.IsTrue))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return allTrue.All(x => x.IsTrue);
         }
 
         public virtual int Order

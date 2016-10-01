@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 
 
 namespace PokerekLibrary.Domain.Extensions
@@ -10,6 +11,15 @@ namespace PokerekLibrary.Domain.Extensions
             var item = list[index];
             list.RemoveAt(index);
             return item;
+        }
+
+        public static void AddIfNotExists<T>(this List<T> list, T obj)
+        {
+            var exists = list.Contains(obj);
+            if (!exists)
+            {
+                list.Add(obj);
+            }
         }
     }
 }
