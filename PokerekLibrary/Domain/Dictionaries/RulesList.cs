@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using PokerekLibrary.Domain.Rules;
 
 namespace PokerekLibrary.Domain.Dictionaries
@@ -18,6 +19,11 @@ namespace PokerekLibrary.Domain.Dictionaries
                 new FourOfKindRule(),
                 new PokerRule()
             };
+        }
+
+        public static IRule GetRuleByPower(int power)
+        {
+            return Get().Single(x => x.Power == power);
         }
     }
 }

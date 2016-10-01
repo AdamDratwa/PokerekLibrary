@@ -40,7 +40,7 @@ namespace PokerekLibrary.Domain.Rules
             return allTrue.All(x => x.IsTrue);
         }
 
-        public virtual int Order
+        public virtual int Power
         {
             get { return 5; }
         }

@@ -6,11 +6,10 @@ namespace PokerekLibrary.Domain.Rules
     {
         public bool IsTrue(List<Card> cards)
         {
-            //return RulePredicates.HaveDuplicates(cards, 2, 1);
-            return false;
+            return RulePredicates.HaveDuplicates(cards, 2, 2) && RulePredicates.HaveDuplicates(cards, 3, 1);
         }
 
-        public int Order
+        public int Power
         {
             get { return 3; }
         }

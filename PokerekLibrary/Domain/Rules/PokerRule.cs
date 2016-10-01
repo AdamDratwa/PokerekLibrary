@@ -8,7 +8,7 @@
             
         }
 
-        public override int Order
+        public override int Power
         {
             get { return 1; }
         }

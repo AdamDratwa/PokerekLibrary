@@ -25,7 +25,7 @@ namespace PokerekLibrary.Test.Services
                 new Card(6, Colors.KARO)
             };
             var score = ruleService.GetHighestActivatedRuleValue(playerHand, cardsOnTable);
-            Assert.That(score, Is.EqualTo(new PairRule().Order));
+            Assert.That(score, Is.EqualTo(new PairRule().Power));
         }
     }
 }

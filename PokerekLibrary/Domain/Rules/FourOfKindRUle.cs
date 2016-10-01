@@ -9,7 +9,7 @@ namespace PokerekLibrary.Domain.Rules
             return RulePredicates.HaveDuplicates(cards, 4, 1);
         }
 
-        public int Order
+        public int Power
         {
             get { return 2; }
         }

@@ -18,7 +18,7 @@ namespace PokerekLibrary.Domain.Rules
             return true;
         }
 
-        public int Order
+        public int Power
         {
             get { return 4; }
         }

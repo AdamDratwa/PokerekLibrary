@@ -33,7 +33,7 @@ namespace PokerekLibrary.Services
         {
             var rules = RulesList.Get();
             playerHand.AddRange(cardsOnTable);
-            var activatedRules = rules.Where(x => x.IsTrue(playerHand)).Select(x => x.Order);
+            var activatedRules = rules.Where(x => x.IsTrue(playerHand)).Select(x => x.Power);
             return activatedRules.Min();
         }
     }

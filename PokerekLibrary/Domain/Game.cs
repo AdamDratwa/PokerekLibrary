@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using PokerekLibrary.Domain.Extensions;
 
 namespace PokerekLibrary.Domain
 {
     public class Game
     {
-        private readonly List<Player> _players;
+        private List<Player> Players { get; set; }
         public int Stack { get; set; }
         public List<Card> CardsOnTable { get; set; }
         public List<Card> Cards { get; set; }
@@ -15,7 +14,7 @@ namespace PokerekLibrary.Domain
 
         public Game(List<Player> players)
         {
-            _players = players;
+            Players = players;
             GetDeck();
         }
 
@@ -32,7 +31,7 @@ namespace PokerekLibrary.Domain
 
         public void RemovePlayer(Player player)
         {
-            _players.Remove(player);
+            Players.Remove(player);
         }
 
         public void PutCards(int cardsCount)
