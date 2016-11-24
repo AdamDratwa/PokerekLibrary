@@ -2,6 +2,7 @@
 using System.Linq;
 using PokerekLibrary.Domain;
 using PokerekLibrary.Domain.Dictionaries;
+using PokerekLibrary.Domain.Rules;
 
 namespace PokerekLibrary.Services
 {
@@ -9,41 +10,39 @@ namespace PokerekLibrary.Services
     {
         public List<Player> GetWinners(List<Player> players, CardList cardsOnTable)
         {
-            var playersWithHighScore = GetPlayersWithHighScore(players, cardsOnTable);        
-            if (playersWithHighScore.Count > 1)
-            {
-                var winners = SelectWinnersFromPlayersWithTheSameHand(playersWithHighScore, cardsOnTable);
-                return winners;
-            }
-
-            return playersWithHighScore;
-        }
-
-        private List<Player> GetPlayersWithHighScore(List<Player> players, CardList cardsOnTable)
-        {
-            var results = players.Select(x => new
+            var activatedRules = players.Select(x => new
             {
                 Player = x,
-                Value = GetHighestActivatedRuleValue(x.Hand, cardsOnTable)
+                BestRule = GetBestActivatedRule(x.Hand, cardsOnTable)
             }).ToList();
-            var bestScore = results.Min(x => x.Value);
-            var playersWithBestScore = results.Where(x => x.Value == bestScore).Select(x => x.Player).ToList();
+
+            var bestActivatedRuleAmongPlayers = activatedRules.Min(x => x.BestRule);
+            var playersWithBestScore = activatedRules.Where(x => x.BestRule == bestActivatedRuleAmongPlayers).Select(x => x.Player).ToList();
+            if (playersWithBestScore.Count > 1)
+            {
+                var winners = SelectWinnersFromPlayersWithTheSameHand(playersWithBestScore, cardsOnTable, bestActivatedRuleAmongPlayers);
+                return winners;
+            }
 
             return playersWithBestScore;
         }
 
-        internal List<Player> SelectWinnersFromPlayersWithTheSameHand(List<Player> playersWithBestScore, CardList cardsOnTable)
+        internal List<Player> SelectWinnersFromPlayersWithTheSameHand(List<Player> playersWithBestScore, CardList cardsOnTable, IRule rule)
         {
-            throw new System.NotImplementedException();
+            var listOfOrderedCards = playersWithBestScore.Select(x => rule.GetCardsInStrongOrder(x.Hand + cardsOnTable)).ToList();
+            for (int i = 0; i < 6; i++)
+            {
+                var cards = listOfOrderedCards.Select(x => x.Skip(i).Take(1));
+            }
         }
 
-        internal int GetHighestActivatedRuleValue(CardList playersHand, CardList cardsOnTable)
+        internal IRule GetBestActivatedRule(CardList playersHand, CardList cardsOnTable)
         {
             var rules = RulesList.Get();
             var playersSet = playersHand + cardsOnTable;
-            var activatedRules = rules.Where(x => x.IsTrue(playersSet)).Select(x => x.Power);
+            var activatedRules = rules.Where(x => x.IsTrue(playersSet)).ToList();
 
-            return activatedRules.Min();
+            return activatedRules.OrderByDescending(x => x.Power).First();
         }
     }
 }
