@@ -13,12 +13,12 @@ namespace PokerekLibrary.Test.Services
         public void GetHighestActivatedRuleValue_ShouldSelectHighestHand()
         {
             var ruleService = new RuleService();
-            var playerHand = new List<Card>
+            var playerHand = new CardList
             {
                 new Card(2, Colors.KARO),
                 new Card(2, Colors.KIER)
             };
-            var cardsOnTable = new List<Card>
+            var cardsOnTable = new CardList
             {
                 new Card(4, Colors.KARO),
                 new Card(5, Colors.KIER),

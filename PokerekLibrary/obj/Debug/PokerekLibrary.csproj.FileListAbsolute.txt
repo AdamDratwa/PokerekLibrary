@@ -3,3 +3,7 @@ E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.dll
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.pdb
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.csprojResolveAssemblyReference.cache
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.pdb
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.pdb

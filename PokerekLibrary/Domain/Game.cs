@@ -8,8 +8,8 @@ namespace PokerekLibrary.Domain
     {
         private List<Player> Players { get; set; }
         public int Stack { get; set; }
-        public List<Card> CardsOnTable { get; set; }
-        public List<Card> Cards { get; set; }
+        public CardList CardsOnTable { get; set; }
+        public CardList Cards { get; set; }
         public Stage Stage { get; set; }
 
         public Game(List<Player> players)

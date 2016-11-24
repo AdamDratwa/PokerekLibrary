@@ -13,5 +13,10 @@ namespace PokerekLibrary.Domain.Rules
         {
             get { return 8; }
         }
+
+        public CardList GetCardsInStrongOrder(CardList playersSet)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

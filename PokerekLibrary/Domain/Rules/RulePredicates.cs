@@ -39,5 +39,10 @@ namespace PokerekLibrary.Domain.Rules
             });
             return groupedByValue.Count(x => x.Pair >= numberOfCards) >= numberOfGroups;
         }
+
+        public static bool HasDuplicates(Card card, CardList cardList, int numberOfCards)
+        {
+            return cardList.Count(x => x.Value == card.Value) == numberOfCards;
+        }
     }
 }

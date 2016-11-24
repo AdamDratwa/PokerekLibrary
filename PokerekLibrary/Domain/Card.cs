@@ -1,4 +1,6 @@
-﻿namespace PokerekLibrary.Domain
+﻿using System.Collections.Generic;
+
+namespace PokerekLibrary.Domain
 {
     public class Card
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PokerekLibrary.Domain.Rules
 {
@@ -12,6 +13,16 @@ namespace PokerekLibrary.Domain.Rules
         public int Power
         {
             get { return 7; }
+        }
+
+        public CardList GetCardsInStrongOrder(CardList playersSet)
+        {
+            return (CardList)playersSet.OrderByDescending(x => IsPartOfRule(x, playersSet) ? 1 : 0).ThenByDescending(x => x.Value).ToList();
+        }
+
+        private static bool IsPartOfRule(Card card, CardList playersSet)
+        {
+            return RulePredicates.HasDuplicates(card, playersSet, 2);
         }
     }
 }

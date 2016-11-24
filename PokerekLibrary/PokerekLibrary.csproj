@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Card.cs" />
+    <Compile Include="Domain\CardList.cs" />
     <Compile Include="Domain\Dictionaries\CardNameValue.cs" />
     <Compile Include="Domain\Colors.cs" />
     <Compile Include="Domain\Extensions\ListExtensions.cs" />

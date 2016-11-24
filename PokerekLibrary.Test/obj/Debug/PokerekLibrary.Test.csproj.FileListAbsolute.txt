@@ -7,3 +7,13 @@ E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\nunit.fra
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.csprojResolveAssemblyReference.cache
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.dll
 E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.pdb
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.Test.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.Test.pdb
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\nunit.framework.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.pdb
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\bin\Debug\nunit.framework.xml
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.csprojResolveAssemblyReference.cache
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.dll
+C:\www\Pokerek\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.pdb
