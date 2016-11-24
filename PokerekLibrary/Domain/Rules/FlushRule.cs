@@ -16,7 +16,7 @@ namespace PokerekLibrary.Domain.Rules
             get { return 4; }
         }
 
-        public CardList GetCardsInStrongOrder(CardList playersSet)
+        public List<Card> GetCardsInStrongOrder(CardList playersSet)
         {
             return (CardList) playersSet.OrderByDescending(x => x.Value).ToList();
         }

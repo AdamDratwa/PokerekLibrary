@@ -6,6 +6,6 @@ namespace PokerekLibrary.Domain.Rules
     {
         bool IsTrue(List<Card> cards);
         int Power { get; }
-        CardList GetCardsInStrongOrder(CardList playersSet);
+        List<Card> GetCardsInStrongOrder(CardList playersSet);
     }
 }

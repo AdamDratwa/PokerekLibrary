@@ -23,6 +23,7 @@ namespace PokerekLibrary.Test.Domain.Rules
             var cardList = ValidTwoPairs1();
             var twoPairsRule = new TwoPairsRule();
             var cardsInStrongOrder = twoPairsRule.GetCardsInStrongOrder(cardList);
+            Assert.NotNull(cardsInStrongOrder);
         }
 
         public IEnumerable TwoPairTestCases()
@@ -38,7 +39,7 @@ namespace PokerekLibrary.Test.Domain.Rules
                 new Card(10, Colors.KIER),
                 new Card(13, Colors.KARO),
                 new Card(13, Colors.TREFL),
-                new Card(9, Colors.PIK)
+                new Card(14, Colors.PIK)
             };
         }
     }
