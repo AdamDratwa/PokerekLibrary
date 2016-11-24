@@ -4,13 +4,14 @@ namespace PokerekLibrary.Domain
 {
     public class Card
     {
+        private uint _value;
         public uint Value
         {
-            get { return Value; }
+            get { return _value; }
             set
             {
                 if (value <= 0 || value > 14) throw new ArgumentOutOfRangeException(nameof(value));
-                Value = value;
+                _value = value;
             }
         }
 

@@ -17,7 +17,7 @@ namespace PokerekLibrary.Domain.Rules
 
         public CardList GetCardsInStrongOrder(CardList playersSet)
         {
-            return (CardList)playersSet.OrderByDescending(x => IsPartOfRule(x, playersSet) ? 1 : 0).ThenByDescending(x => x.Value).ToList();
+            return playersSet.OrderByDescending(x => IsPartOfRule(x, playersSet) ? 1 : 0).ThenByDescending(x => x.Value).ToList() as CardList;
         }
 
         private static bool IsPartOfRule(Card card, CardList playersSet)

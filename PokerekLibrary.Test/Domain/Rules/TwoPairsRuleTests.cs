@@ -17,6 +17,14 @@ namespace PokerekLibrary.Test.Domain.Rules
             Assert.That(isRuleTrue, Is.EqualTo(isTrue));
         }
 
+        [Test]
+        public void GetCardsInStrongOrder_ShouldOrderCardsProperly()
+        {
+            var cardList = ValidTwoPairs1();
+            var twoPairsRule = new TwoPairsRule();
+            var cardsInStrongOrder = twoPairsRule.GetCardsInStrongOrder(cardList);
+        }
+
         public IEnumerable TwoPairTestCases()
         {
             yield return new TestCaseData(ValidTwoPairs1(), true);
