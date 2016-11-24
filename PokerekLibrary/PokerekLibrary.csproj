@@ -40,12 +40,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Card.cs" />
+    <Compile Include="Domain\Dictionaries\CardNameValue.cs" />
     <Compile Include="Domain\Colors.cs" />
+    <Compile Include="Domain\Extensions\ListExtensions.cs" />
+    <Compile Include="Domain\Figures.cs" />
     <Compile Include="Domain\Game.cs" />
     <Compile Include="Domain\Player.cs" />
+    <Compile Include="Domain\Rules\FlushRule.cs" />
+    <Compile Include="Domain\Rules\FourOfKindRule.cs" />
+    <Compile Include="Domain\Rules\FullRule.cs" />
+    <Compile Include="Domain\Dictionaries\RulesList.cs" />
+    <Compile Include="Domain\Rules\IRule.cs" />
+    <Compile Include="Domain\Rules\PairRule.cs" />
+    <Compile Include="Domain\Rules\PokerRule.cs" />
+    <Compile Include="Domain\Rules\RulePredicates.cs" />
+    <Compile Include="Domain\Rules\StraightRule.cs" />
+    <Compile Include="Domain\Rules\ThreeOfKindRule.cs" />
+    <Compile Include="Domain\Rules\TwoPairsRule.cs" />
+    <Compile Include="Domain\Stage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\IRulesService.cs" />
+    <Compile Include="Services\RuleService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

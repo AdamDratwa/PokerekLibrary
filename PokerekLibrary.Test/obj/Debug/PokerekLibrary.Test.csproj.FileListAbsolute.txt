@@ -1,0 +1,9 @@
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.Test.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.Test.pdb
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\nunit.framework.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\PokerekLibrary.pdb
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\bin\Debug\nunit.framework.xml
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.csprojResolveAssemblyReference.cache
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary.Test\obj\Debug\PokerekLibrary.Test.pdb

@@ -1,0 +1,5 @@
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.pdb
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.dll
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.pdb
+E:\Projekty Visual Studio\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.csprojResolveAssemblyReference.cache
