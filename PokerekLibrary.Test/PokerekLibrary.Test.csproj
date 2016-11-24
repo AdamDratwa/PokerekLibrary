@@ -57,6 +57,7 @@
     <Compile Include="Domain\Rules\FlushRuleTests.cs" />
     <Compile Include="Domain\Rules\FullRuleTests.cs" />
     <Compile Include="Domain\Rules\PokerRuleTests.cs" />
+    <Compile Include="Domain\Rules\TwoPairsRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RuleServiceTests.cs" />
   </ItemGroup>

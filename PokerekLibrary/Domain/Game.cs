@@ -20,7 +20,7 @@ namespace PokerekLibrary.Domain
 
         private void GetDeck()
         {
-            for (var i = 2; i <= 13; i++)
+            for (uint i = 2; i <= 13; i++)
             {
                 Cards.Add(new Card(i, Colors.KARO));
                 Cards.Add(new Card(i, Colors.KIER));
