@@ -29,11 +29,20 @@ namespace PokerekLibrary.Services
 
         internal List<Player> SelectWinnersFromPlayersWithTheSameHand(List<Player> playersWithBestScore, CardList cardsOnTable, IRule rule)
         {
-            var listOfOrderedCards = playersWithBestScore.Select(x => rule.GetCardsInStrongOrder(x.Hand + cardsOnTable)).ToList();
-            for (int i = 0; i < 6; i++)
+            var setOfPlayersWithOrderedHand = playersWithBestScore.Select(x => new {
+                Player = x,
+                OrderedHand = rule.GetCardsInStrongOrder(x.Hand + cardsOnTable)
+            }).ToList();
+
+            for (var i = 0; i < 6; i++)
             {
-                var cards = listOfOrderedCards.Select(x => x.Skip(i).Take(1));
+                foreach (var list in setOfPlayersWithOrderedHand)
+                {
+                    var cards = list;                   
+                }
             }
+            // TODO: fix this method
+            return new List<Player>();
         }
 
         internal IRule GetBestActivatedRule(CardList playersHand, CardList cardsOnTable)
