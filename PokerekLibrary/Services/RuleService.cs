@@ -59,7 +59,7 @@ namespace PokerekLibrary.Services
             var playersSet = playersHand + cardsOnTable;
             var activatedRules = rules.Where(x => x.IsTrue(playersSet)).ToList();
 
-            return activatedRules.OrderByDescending(x => x.Power).First();
+            return activatedRules.OrderBy(x => x.Power).First();
         }
     }
 }

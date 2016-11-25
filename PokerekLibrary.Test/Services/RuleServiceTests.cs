@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -37,7 +38,9 @@ namespace PokerekLibrary.Test.Services
 
         private IEnumerable ActivatedRulesTestCases()
         {
-            yield return new TestCaseData();
+            yield return new TestCaseData(PlayersHand1(), CardsOnTable1(), new TwoPairsRule());
+            yield return new TestCaseData(PlayersHand2(), CardsOnTable2(), new PairRule());
+            yield return new TestCaseData(PlayersHand3(), CardsOnTable3(), null);
         }
 
         #region TestCases
@@ -175,6 +178,86 @@ namespace PokerekLibrary.Test.Services
                         new Card(9, Colors.KARO)
                     }
                 }
+            };
+        }
+
+        #endregion
+
+        #endregion
+
+        #region ActivatedRulesTestCases
+
+        #region TestCase1 TwoPairRule
+
+        private CardList CardsOnTable1()
+        {
+            return new CardList
+            {
+                new Card(10, Colors.PIK),
+                new Card(9, Colors.TREFL),
+                new Card(11, Colors.KARO),
+                new Card(2, Colors.KIER),
+                new Card(4, Colors.KIER)
+            };
+        }
+
+        private CardList PlayersHand1()
+        {
+            return new CardList
+            {
+                new Card(10, Colors.KARO),
+                new Card(9, Colors.KIER)
+            };
+        }
+
+        #endregion
+
+        #region TestCase2 PairRule
+
+        private CardList CardsOnTable2()
+        {
+            return new CardList
+            {
+                new Card(10, Colors.PIK),
+                new Card(9, Colors.TREFL),
+                new Card(11, Colors.KARO),
+                new Card(2, Colors.KIER),
+                new Card(4, Colors.KIER)
+            };
+        }
+
+        private CardList PlayersHand2()
+        {
+            return new CardList
+            {
+                new Card(3, Colors.KARO),
+                new Card(9, Colors.KIER)
+            };
+        }
+
+
+        #endregion
+
+        #region NoRuleActivated
+
+        private CardList CardsOnTable3()
+        {
+            return new CardList
+            {
+                new Card(10, Colors.PIK),
+                new Card(9, Colors.TREFL),
+                new Card(11, Colors.KARO),
+                new Card(2, Colors.KIER),
+                new Card(4, Colors.KIER)
+            };
+        }
+
+        private CardList PlayersHand3()
+        {
+            return new CardList
+            {
+                new Card(6, Colors.KARO),
+                new Card(7, Colors.KIER)
             };
         }
 
