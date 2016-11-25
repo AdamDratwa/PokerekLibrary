@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using PokerekLibrary.Domain;
 using PokerekLibrary.Domain.Rules;
@@ -9,23 +10,17 @@ namespace PokerekLibrary.Test.Services
     [TestFixture]
     public class RuleServiceTests
     {
-        //[Test]
-        //public void GetHighestActivatedRuleValue_ShouldSelectHighestHand()
-        //{
-        //    var ruleService = new RuleService();
-        //    var playerHand = new CardList
-        //    {
-        //        new Card(2, Colors.KARO),
-        //        new Card(2, Colors.KIER)
-        //    };
-        //    var cardsOnTable = new CardList
-        //    {
-        //        new Card(4, Colors.KARO),
-        //        new Card(5, Colors.KIER),
-        //        new Card(6, Colors.KARO)
-        //    };
-        //    var score = ruleService.(playerHand, cardsOnTable);
-        //    Assert.That(score, Is.EqualTo(new PairRule().Power));
-        
+        [TestCaseSource("WinnersFromPlayersWithTheSameActivatedRule")]
+        public void GetHighestActivatedRuleValue_ShouldSelectHighestHand(List<Player> players, CardList cardsOnTable, IRule rule, List<Player> playersWon)
+        {
+            var ruleService = new RuleService();
+            var winners = ruleService.SelectWinnersFromPlayersWithTheSameActivatedRule(players, cardsOnTable, rule);
+            Assert.That(winners.Count, Is.EqualTo(1));
+        }
+
+        private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()
+        {
+            yield return new TestCaseData();
+        }
     }
 }

@@ -16,7 +16,6 @@ namespace PokerekLibrary.Test.Domain.Rules
             var isRuleTrue = fullRule.IsTrue(cards);
             Assert.That(isRuleTrue, Is.EqualTo(isTrue));
         }
-
         
         private IEnumerable FullTestCases()
         {

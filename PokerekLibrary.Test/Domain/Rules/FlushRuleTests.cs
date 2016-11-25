@@ -15,7 +15,6 @@ namespace PokerekLibrary.Test.Domain.Rules
             var flushRule = new FlushRule();
             var isRuleTrue = flushRule.IsTrue(cards);
             Assert.That(isRuleTrue, Is.EqualTo(isTrue));
-
         }
 
         private IEnumerable FlushTestCases()

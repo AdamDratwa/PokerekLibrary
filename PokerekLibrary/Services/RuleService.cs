@@ -36,13 +36,21 @@ namespace PokerekLibrary.Services
 
             for (var i = 0; i < 6; i++)
             {
-                foreach (var list in setOfPlayersWithOrderedHand)
+                var firstCards = setOfPlayersWithOrderedHand.Select(x => new
                 {
-                    var cards = list;                   
+                    Card = x.OrderedHand.Skip(i).First(),
+                    x.Player
+                }).ToList();
+
+                var bestCard = firstCards.Max(x => x.Card.Value);
+                var playersWithBestCard = firstCards.Where(x => x.Card.Value == bestCard).Select(x => x.Player).ToList();
+                if (playersWithBestCard.Count == 1)
+                {
+                    return playersWithBestCard;
                 }
             }
-            // TODO: fix this method
-            return new List<Player>();
+
+            return playersWithBestScore;
         }
 
         internal IRule GetBestActivatedRule(CardList playersHand, CardList cardsOnTable)
