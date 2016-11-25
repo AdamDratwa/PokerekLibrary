@@ -3,24 +3,19 @@ using System.Linq;
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class TwoPairsRule : IRule
+    public class TwoPairsRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             return RulePredicates.HaveDuplicates(cards, 2, 2);
         }
 
-        public int Power
+        public override int Power
         {
             get { return 7; }
         }
 
-        public List<Card> GetCardsInStrongOrder(CardList playersSet)
-        {
-            return playersSet.OrderByDescending(x => IsPartOfRule(x, playersSet) ? 1 : 0).ThenByDescending(x => x.Value).ToList();
-        }
-
-        private static bool IsPartOfRule(Card card, CardList playersSet)
+        public override bool IsPartOfRule(Card card, CardList playersSet)
         {
             return RulePredicates.HasDuplicates(card, playersSet, 2);
         }

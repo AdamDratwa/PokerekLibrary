@@ -20,14 +20,14 @@ namespace PokerekLibrary.Services
             var playersWithBestScore = activatedRules.Where(x => x.BestRule == bestActivatedRuleAmongPlayers).Select(x => x.Player).ToList();
             if (playersWithBestScore.Count > 1)
             {
-                var winners = SelectWinnersFromPlayersWithTheSameHand(playersWithBestScore, cardsOnTable, bestActivatedRuleAmongPlayers);
+                var winners = SelectWinnersFromPlayersWithTheSameActivatedRule(playersWithBestScore, cardsOnTable, bestActivatedRuleAmongPlayers);
                 return winners;
             }
 
             return playersWithBestScore;
         }
 
-        internal List<Player> SelectWinnersFromPlayersWithTheSameHand(List<Player> playersWithBestScore, CardList cardsOnTable, IRule rule)
+        internal List<Player> SelectWinnersFromPlayersWithTheSameActivatedRule(List<Player> playersWithBestScore, CardList cardsOnTable, IRule rule)
         {
             var setOfPlayersWithOrderedHand = playersWithBestScore.Select(x => new {
                 Player = x,

@@ -2,21 +2,21 @@
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class FourOfKindRule : IRule
+    public class FourOfKindRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             return RulePredicates.HaveDuplicates(cards, 4, 1);
         }
 
-        public int Power
+        public override int Power
         {
             get { return 2; }
         }
 
-        public List<Card> GetCardsInStrongOrder(CardList playersSet)
+        public override bool IsPartOfRule(Card card, CardList playersSet)
         {
-            throw new System.NotImplementedException();
+            return RulePredicates.HasDuplicates(card, playersSet, 4);
         }
     }
 }

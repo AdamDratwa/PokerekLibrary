@@ -3,22 +3,22 @@ using System.Linq;
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class FlushRule : IRule
+    public class FlushRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             cards = cards.OrderBy(x => x.Color == Colors.KARO).ToList();
             return RulePredicates.CardsInColor(cards);
         }
 
-        public int Power
+        public override int Power
         {
             get { return 4; }
         }
 
-        public List<Card> GetCardsInStrongOrder(CardList playersSet)
+        public override bool IsPartOfRule(Card card, CardList playersSet)
         {
-            return (CardList) playersSet.OrderByDescending(x => x.Value).ToList();
+            return true;
         }
     }
 }

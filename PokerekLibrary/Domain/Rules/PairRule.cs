@@ -2,21 +2,21 @@
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class PairRule : IRule
+    public class PairRule : Rule
     {
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             return RulePredicates.HaveDuplicates(cards, 2, 1);
         }
 
-        public int Power
+        public override int Power
         {
             get { return 8; }
         }
 
-        public List<Card> GetCardsInStrongOrder(CardList playersSet)
+        public override bool IsPartOfRule(Card card, CardList playersSet)
         {
-            throw new System.NotImplementedException();
+            return RulePredicates.HasDuplicates(card, playersSet, 2);
         }
     }
 }

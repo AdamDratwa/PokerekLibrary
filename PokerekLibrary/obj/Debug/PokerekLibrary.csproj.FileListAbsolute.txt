@@ -8,3 +8,8 @@ C:\www\Pokerek\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.pdb
 C:\www\Pokerek\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.dll
 C:\www\Pokerek\PokerekLibrary\PokerekLibrary\bin\Debug\PokerekLibrary.pdb
 C:\www\Pokerek\PokerekLibrary\PokerekLibrary\obj\Debug\PokerekLibrary.csprojResolveAssemblyReference.cache
+C:\www\Pokerek\PokerekLibrary\bin\Debug\PokerekLibrary.dll
+C:\www\Pokerek\PokerekLibrary\bin\Debug\PokerekLibrary.pdb
+C:\www\Pokerek\PokerekLibrary\obj\Debug\PokerekLibrary.csprojResolveAssemblyReference.cache
+C:\www\Pokerek\PokerekLibrary\obj\Debug\PokerekLibrary.dll
+C:\www\Pokerek\PokerekLibrary\obj\Debug\PokerekLibrary.pdb

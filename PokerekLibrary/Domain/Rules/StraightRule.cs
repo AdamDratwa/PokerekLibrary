@@ -5,7 +5,7 @@ using Predicates = System.Collections.Generic.List<System.Func<System.Collection
 
 namespace PokerekLibrary.Domain.Rules
 {
-    public class StraightRule : IRule
+    public class StraightRule : Rule
     {
         private readonly Predicates _predicates;
         public StraightRule(Func<List<Card>, bool> predicate = null)
@@ -16,7 +16,7 @@ namespace PokerekLibrary.Domain.Rules
                 _predicates.Add(predicate);
             }
         }
-        public bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> cards)
         {
             cards = cards.OrderBy(x => x.Value).ToList();
             var isTrue = CheckRule(cards, _predicates);
@@ -40,14 +40,14 @@ namespace PokerekLibrary.Domain.Rules
             return allTrue.All(x => x.IsTrue);
         }
 
-        public virtual int Power
+        public override int Power
         {
             get { return 5; }
         }
 
-        public List<Card> GetCardsInStrongOrder(CardList playersSet)
+        public override bool IsPartOfRule(Card card, CardList playersSet)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
