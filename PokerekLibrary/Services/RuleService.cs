@@ -34,7 +34,7 @@ namespace PokerekLibrary.Services
                 OrderedHand = rule.GetCardsInStrongOrder(x.Hand + cardsOnTable)
             }).ToList();
 
-            for (var i = 0; i < 6; i++)
+            for (var i = 0; i < 4; i++)
             {
                 var firstCards = setOfPlayersWithOrderedHand.Select(x => new
                 {

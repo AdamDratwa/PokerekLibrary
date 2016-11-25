@@ -20,10 +20,24 @@ namespace PokerekLibrary.Test.Services
             Assert.That(winners.First().Id, Is.EqualTo(playersWon.First().Id));
         }
 
+        [TestCaseSource("ActivatedRulesTestCases")]
+        public void GetBestActivatedRule_ShouldGetBestRule(CardList playersSet, CardList cardsOnTable, IRule rule)
+        {
+            var ruleService = new RuleService();
+            var bestActivatedRule = ruleService.GetBestActivatedRule(playersSet, cardsOnTable);
+            Assert.That(bestActivatedRule.GetType(), Is.EqualTo(rule.GetType()));
+        }
+
         private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()
         {
             yield return new TestCaseData(PlayerList1(), CardList1(), new TwoPairsRule(), Winners1());
             yield return new TestCaseData(PlayerList2(), CardList2(), new FourOfKindRule(), Winners2());
+            yield return new TestCaseData(PlayerList3(), CardList3(), new FullRule(), Winners3());
+        }
+
+        private IEnumerable ActivatedRulesTestCases()
+        {
+            yield return new TestCaseData();
         }
 
         #region TestCases
@@ -86,10 +100,10 @@ namespace PokerekLibrary.Test.Services
             return new CardList
             {
                 new Card(9, Colors.KIER),
-                new Card(10, Colors.PIK),
+                new Card(9, Colors.PIK),
                 new Card(13, Colors.PIK),
-                new Card(8, Colors.TREFL),
-                new Card(2, Colors.KARO)
+                new Card(13, Colors.TREFL),
+                new Card(13, Colors.KARO)
             };
         }
 
@@ -103,7 +117,7 @@ namespace PokerekLibrary.Test.Services
                     Hand = new CardList
                     {
                         new Card(9, Colors.KARO),
-                        new Card(10, Colors.KIER)
+                        new Card(9, Colors.KIER)
                     }
                 },
                 new Player
@@ -113,6 +127,52 @@ namespace PokerekLibrary.Test.Services
                     {
                         new Card(13, Colors.KARO),
                         new Card(8, Colors.KARO)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region TestCase3 FullRule
+
+        private List<Player> Winners3()
+        {
+            return new List<Player> { PlayerList3()[1] };
+        }
+
+        private CardList CardList3()
+        {
+            return new CardList
+            {
+                new Card(9, Colors.KIER),
+                new Card(6, Colors.PIK),
+                new Card(13, Colors.PIK),
+                new Card(13, Colors.TREFL),
+                new Card(13, Colors.KARO)
+            };
+        }
+
+        private List<Player> PlayerList3()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(6, Colors.KARO),
+                        new Card(7, Colors.KIER)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(7, Colors.KARO),
+                        new Card(9, Colors.KARO)
                     }
                 }
             };
