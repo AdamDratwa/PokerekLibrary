@@ -9,7 +9,7 @@ namespace PokerekLibrary.Test.Domain.Rules
     [TestFixture]
     public class TwoPairsRuleTests
     {
-        [TestCaseSource(nameof(TwoPairTestCases))]
+        [TestCaseSource("TwoPairTestCases")]
         public void IsTrue_ShouldCheckRule(List<Card> cards, bool isTrue)
         {
             var twoPairsRule = new TwoPairsRule();

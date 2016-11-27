@@ -10,7 +10,7 @@ namespace PokerekLibrary.Domain
             get { return _value; }
             set
             {
-                if (value <= 0 || value > 14) throw new ArgumentOutOfRangeException(nameof(value));
+                if (value <= 0 || value > 14) throw new ArgumentOutOfRangeException("Card has wrong value.");
                 _value = value;
             }
         }

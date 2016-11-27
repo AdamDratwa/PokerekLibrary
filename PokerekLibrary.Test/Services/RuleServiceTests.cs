@@ -25,7 +25,27 @@ namespace PokerekLibrary.Test.Services
         {
             var ruleService = new RuleService();
             var bestActivatedRule = ruleService.GetBestActivatedRule(playersSet, cardsOnTable);
-            Assert.That(bestActivatedRule.GetType(), Is.EqualTo(rule.GetType()));
+            if (rule == null)
+            {
+                Assert.Null(bestActivatedRule);
+            }
+            else
+            {
+                Assert.That(bestActivatedRule.GetType(), Is.EqualTo(rule.GetType()));
+            }
+        }
+
+        [TestCaseSource("GetWinnersTestCases")]
+        public void GetWinners_ShouldGetWinners(List<Player> players, CardList cardsOnTable, List<Player> winners)
+        {
+            var ruleService = new RuleService();
+            var bestPlayers = ruleService.GetWinners(players, cardsOnTable);
+            Assert.That(bestPlayers, Is.EqualTo(winners));
+        }
+
+        private IEnumerable GetWinnersTestCases()
+        {
+            yield return new TestCaseData(Players1(), OnTable1(), Winner1());
         }
 
         private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()

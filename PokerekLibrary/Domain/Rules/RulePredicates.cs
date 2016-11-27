@@ -15,7 +15,11 @@ namespace PokerekLibrary.Domain.Rules
                 if (cards[i + 1].Value - cards[i].Value == 1)
                 {
                     cardsInOrder.AddIfNotExists(cards[i]);
-                    cardsInOrder.AddIfNotExists(cards[i+1]);
+                    cardsInOrder.AddIfNotExists(cards[i + 1]);
+                }
+                else
+                {
+                    cardsInOrder.Clear();
                 }
             }
             return cardsInOrder.Count >= 5;

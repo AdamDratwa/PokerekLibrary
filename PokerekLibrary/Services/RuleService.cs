@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PokerekLibrary.Domain;
 using PokerekLibrary.Domain.Dictionaries;
@@ -13,14 +14,15 @@ namespace PokerekLibrary.Services
             var activatedRules = players.Select(x => new
             {
                 Player = x,
-                BestRule = GetBestActivatedRule(x.Hand, cardsOnTable)
+                BestRule = GetBestActivatedRule(x.Hand, cardsOnTable)?.Power ?? int.MaxValue
             }).ToList();
 
             var bestActivatedRuleAmongPlayers = activatedRules.Min(x => x.BestRule);
             var playersWithBestScore = activatedRules.Where(x => x.BestRule == bestActivatedRuleAmongPlayers).Select(x => x.Player).ToList();
             if (playersWithBestScore.Count > 1)
             {
-                var winners = SelectWinnersFromPlayersWithTheSameActivatedRule(playersWithBestScore, cardsOnTable, bestActivatedRuleAmongPlayers);
+                var rule = RulesList.GetRuleByPower(bestActivatedRuleAmongPlayers);
+                var winners = SelectWinnersFromPlayersWithTheSameActivatedRule(playersWithBestScore, cardsOnTable, rule);
                 return winners;
             }
 
@@ -59,7 +61,7 @@ namespace PokerekLibrary.Services
             var playersSet = playersHand + cardsOnTable;
             var activatedRules = rules.Where(x => x.IsTrue(playersSet)).ToList();
 
-            return activatedRules.OrderBy(x => x.Power).First();
+            return activatedRules.OrderBy(x => x.Power).FirstOrDefault();
         }
     }
 }
