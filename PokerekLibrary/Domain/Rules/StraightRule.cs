@@ -23,6 +23,7 @@ namespace PokerekLibrary.Domain.Rules
             if (!isTrue && cards.Any(x => x.Value == (int)Figures.AS))
             {
                 var ases = cards.Where(x => x.Value == (int)Figures.AS).ToList();
+                var list = cards.Where(x => x.Value == (int) Figures.AS);
                 ases.ForEach(x => x.Value = 1);
                 cards = cards.OrderBy(x => x.Value).ToList();
                 isTrue = CheckRule(cards, _predicates);

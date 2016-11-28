@@ -36,17 +36,17 @@ namespace PokerekLibrary.Test.Services
         }
 
         [TestCaseSource("GetWinnersTestCases")]
-        public void GetWinners_ShouldGetWinners(List<Player> players, CardList cardsOnTable, List<Player> winners)
+        public void GetWinners_ShouldGetWinners(List<Player> players, CardList cardsOnTable, IEnumerable<Player> winners)
         {
             var ruleService = new RuleService();
             var bestPlayers = ruleService.GetWinners(players, cardsOnTable);
-            Assert.That(bestPlayers, Is.EqualTo(winners));
+            Assert.That(bestPlayers.First().Id, Is.EqualTo(winners.First().Id));
         }
 
         private IEnumerable GetWinnersTestCases()
         {
             yield return new TestCaseData(Players1(), OnTable1(), Winner1());
-        }
+        }   
 
         private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()
         {
@@ -282,6 +282,61 @@ namespace PokerekLibrary.Test.Services
 
         #endregion
 
+        #region GetWinners TestCase1
+
+        private IEnumerable<Player> Winner1()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable1()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.PIK),
+                new Card(8, Colors.KARO),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players1()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(13, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(14, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(10, Colors.KARO),
+                        new Card(9, Colors.KARO)
+                    }
+                }
+            };
+        }
+
+        #endregion
+       
         #endregion
     }
 }
