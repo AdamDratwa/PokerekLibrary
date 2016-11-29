@@ -47,6 +47,10 @@ namespace PokerekLibrary.Test.Services
         {
             yield return new TestCaseData(Players1(), OnTable1(), Winner1());
             yield return new TestCaseData(Players2(), OnTable2(), Winner2());
+            yield return new TestCaseData(Players3(), OnTable3(), Winner3());
+            yield return new TestCaseData(Players4(), OnTable4(), Winner4());
+            yield return new TestCaseData(Players5(), OnTable5(), Winner5());
+            yield return new TestCaseData(Players6(), OnTable6(), Winner6());
         }   
 
         private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()
@@ -390,6 +394,226 @@ namespace PokerekLibrary.Test.Services
                     {
                         new Card(14, Colors.KARO),
                         new Card(9, Colors.KARO)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region TestCase3
+
+        private IEnumerable<Player> Winner3()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable3()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.PIK),
+                new Card(8, Colors.KARO),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players3()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(8, Colors.KARO),
+                        new Card(8, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(8, Colors.KARO),
+                        new Card(7, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(13, Colors.KARO),
+                        new Card(13, Colors.KARO)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region TestCase4 - Straight vs Poker
+
+        private IEnumerable<Player> Winner4()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable4()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.KIER),
+                new Card(12, Colors.KIER),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players4()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(11, Colors.KARO),
+                        new Card(10, Colors.KIER)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(8, Colors.KARO),
+                        new Card(7, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(11, Colors.KIER),
+                        new Card(10, Colors.KIER)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region ThreeOfKind vs Full vs FourOfKind
+
+        private IEnumerable<Player> Winner5()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable5()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.KIER),
+                new Card(13, Colors.KIER),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players5()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(13, Colors.KIER)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(14, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(13, Colors.KIER),
+                        new Card(13, Colors.KIER)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region BestCard
+
+        private IEnumerable<Player> Winner6()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable6()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.KIER),
+                new Card(13, Colors.KIER),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players6()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(9, Colors.KARO),
+                        new Card(10, Colors.KIER)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(10, Colors.KARO),
+                        new Card(11, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(11, Colors.KIER),
+                        new Card(12, Colors.KIER)
                     }
                 }
             };
