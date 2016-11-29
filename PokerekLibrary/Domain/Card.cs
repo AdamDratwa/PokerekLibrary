@@ -17,6 +17,8 @@ namespace PokerekLibrary.Domain
 
         public Colors Color { get; set; }
 
+        public Card() { }
+
         public Card(uint value, Colors color)
         {
             Value = value;

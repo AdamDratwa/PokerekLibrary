@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace PokerekLibrary.Domain
 {
@@ -18,21 +18,29 @@ namespace PokerekLibrary.Domain
 
         public static CardList operator +(CardList playersCard, CardList cardsOnTable)
         {
-            playersCard.AddRange(cardsOnTable);
-            return playersCard;
+            var cardList = new CardList();
+            playersCard.ForEach(x => cardList.Add(x));
+            cardsOnTable.ForEach(x => cardList.Add(x));
+            return cardList;
         }
 
         private void Validate()
         {
-            //TODO: check if set of cards doesn't contain duplicates
-            //var groupedByValue = this.GroupBy(x => x.Value).Select((key, value) => new 
-            //{
-            //    Value = value,
-            //    DuplicatesCount = key.Count(),
-            //    Card = key
-            //});
+            var groupedByValue = this.GroupBy(x => x.Value).Select((key, value) => new
+            {
+                Value = value,
+                DuplicatesCount = key.Count()
+            });
 
-            //var colorDuplicates = groupedByValue.GroupBy(x => x.Card.)
+            var cardsWithDuplicatedValue = groupedByValue.Where(x => x.DuplicatesCount > 1);
+            foreach (var duplicates in cardsWithDuplicatedValue)
+            {
+                var cardsForValue = this.Where(x => x.Value == duplicates.Value).ToList();
+                if (cardsForValue.Distinct().Count() != cardsForValue.Count)
+                {
+                    throw new Exception("There are duplicates!");
+                }
+            }
         }
     }
 }

@@ -46,6 +46,7 @@ namespace PokerekLibrary.Test.Services
         private IEnumerable GetWinnersTestCases()
         {
             yield return new TestCaseData(Players1(), OnTable1(), Winner1());
+            yield return new TestCaseData(Players2(), OnTable2(), Winner2());
         }   
 
         private IEnumerable WinnersFromPlayersWithTheSameActivatedRule()
@@ -282,7 +283,11 @@ namespace PokerekLibrary.Test.Services
 
         #endregion
 
-        #region GetWinners TestCase1
+        #endregion
+
+        #region GetWinners
+
+        #region TestCase1
 
         private IEnumerable<Player> Winner1()
         {
@@ -336,7 +341,62 @@ namespace PokerekLibrary.Test.Services
         }
 
         #endregion
-       
+
+        #region TestCase2
+
+        private IEnumerable<Player> Winner2()
+        {
+            yield return new Player { Id = 3 };
+        }
+
+        private CardList OnTable2()
+        {
+            return new CardList
+            {
+                new Card(14, Colors.KIER),
+                new Card(13, Colors.PIK),
+                new Card(8, Colors.KARO),
+                new Card(7, Colors.TREFL),
+                new Card(6, Colors.PIK),
+            };
+        }
+
+        private List<Player> Players2()
+        {
+            return new List<Player>
+            {
+                new Player
+                {
+                    Id = 1,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(2, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 2,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(3, Colors.KARO)
+                    }
+                },
+                new Player
+                {
+                    Id = 3,
+                    Hand = new CardList
+                    {
+                        new Card(14, Colors.KARO),
+                        new Card(9, Colors.KARO)
+                    }
+                }
+            };
+        }
+
+        #endregion
+
         #endregion
     }
 }

@@ -21,10 +21,18 @@ namespace PokerekLibrary.Domain.Rules
                     else
                     {
                         cardsInOrder += 1;
+                        if (cardsInOrder == 5)
+                        {
+                            return true;
+                        }
                     }
                 }
+                else
+                {
+                    cardsInOrder = 0;
+                }
             }
-            return cardsInOrder >= 5;
+            return false;
         }
 
         public static bool CardsInColor(List<Card> cards)

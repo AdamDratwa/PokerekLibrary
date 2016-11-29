@@ -16,19 +16,26 @@ namespace PokerekLibrary.Domain.Rules
                 _predicates.Add(predicate);
             }
         }
-        public override bool IsTrue(List<Card> cards)
+        public override bool IsTrue(List<Card> set)
         {
-            cards = cards.OrderBy(x => x.Value).ToList();
-            var isTrue = CheckRule(cards, _predicates);
-            if (!isTrue && cards.Any(x => x.Value == (int)Figures.AS))
+            set = set.OrderBy(x => x.Value).ToList();
+            var isTrue = CheckRule(set, _predicates);
+            if (!isTrue && set.Any(x => x.Value == (int)Figures.AS))
             {
-                var ases = cards.Where(x => x.Value == (int)Figures.AS).ToList();
-                var list = cards.Where(x => x.Value == (int) Figures.AS);
-                ases.ForEach(x => x.Value = 1);
-                cards = cards.OrderBy(x => x.Value).ToList();
+                var cards = GetCardsToCheckRuleWithAses(set);
                 isTrue = CheckRule(cards, _predicates);
             }
             return isTrue;
+        }
+
+        private List<Card> GetCardsToCheckRuleWithAses(List<Card> set)
+        {
+            var cards = set.Select(x => new Card
+            {
+                Value = x.Value == (int)Figures.AS? 1 : x.Value,
+                Color = x.Color
+            });
+            return cards.OrderBy(x => x.Value).ToList();
         }
 
         private bool CheckRule(List<Card> cards, Predicates predicates)
