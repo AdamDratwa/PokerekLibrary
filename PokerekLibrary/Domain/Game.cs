@@ -36,7 +36,7 @@ namespace PokerekLibrary.Domain
         private void SetUpDeck()
         {
             Cards = new CardList(52);
-            for (uint i = 2; i <= 13; i++)
+            for (uint i = 2; i <= 14; i++)
             {
                 Cards.Add(new Card(i, Colors.KARO));
                 Cards.Add(new Card(i, Colors.KIER));

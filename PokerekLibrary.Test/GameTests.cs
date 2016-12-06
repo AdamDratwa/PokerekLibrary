@@ -27,7 +27,7 @@ namespace PokerekLibrary.Test
 
             var game = new Game(players);
             Assert.That(players.All(x => x.Hand.Count > 0));
-            Assert.NotNull(game.Cards);
+            Assert.That(game.Cards.Count, Is.EqualTo(52 - players.Count * 2));
         }
     }
 }
