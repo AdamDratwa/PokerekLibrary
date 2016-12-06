@@ -15,11 +15,27 @@ namespace PokerekLibrary.Domain
         public Game(List<Player> players)
         {
             Players = players;
-            GetDeck();
+            SetUpDeck();
+            GiveCardsToPlayers();
         }
 
-        private void GetDeck()
+        private void GiveCardsToPlayers()
         {
+            var random = new Random();
+            for (var i = 0; i <= 1; i++)
+            {
+                foreach (var player in Players)
+                {
+                    var index = random.Next(Cards.Count);
+                    var card = Cards.Pop(index);
+                    player.Hand.Add(card);
+                }              
+            }
+        }
+
+        private void SetUpDeck()
+        {
+            Cards = new CardList(52);
             for (uint i = 2; i <= 13; i++)
             {
                 Cards.Add(new Card(i, Colors.KARO));

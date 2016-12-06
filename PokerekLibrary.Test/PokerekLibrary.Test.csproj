@@ -59,6 +59,7 @@
     <Compile Include="Domain\Rules\PokerRuleTests.cs" />
     <Compile Include="Domain\Rules\StraightRuleTests.cs" />
     <Compile Include="Domain\Rules\TwoPairsRuleTests.cs" />
+    <Compile Include="GameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RuleServiceTests.cs" />
   </ItemGroup>
