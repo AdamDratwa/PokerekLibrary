@@ -14,17 +14,20 @@ namespace PokerekLibrary.Services
         public GameService(IRulesService rulesService)
         {
             _rulesService = rulesService;
-            Players = new List<Player>();
+            Players = GetPlayers();
+        }
+
+        private List<Player> GetPlayers()
+        {
+            return new List<Player>
+            {
+                new Player(this)
+            };
         }
 
         public void StartNewGame()
         {
             Game = new Game(Players);
-        }
-
-        public void RemovePlayer(Player player)
-        {
-            Players.Remove(player);
         }
 
         public void NextRound()
@@ -45,11 +48,26 @@ namespace PokerekLibrary.Services
             }
         }
 
+        public void NextPlayer()
+        {
+            
+        }
+
+        public void RemovePlayer()
+        {
+            
+        }
+
         public void HandOutStack()
         {
            var winners = _rulesService.GetWinners(Players, Game.CardsOnTable);
            var price = Game.Stack/winners.Count;
            winners.ForEach(x=> x.Chips += price);
+        }
+
+        public int GetCurrentStack()
+        {
+            return Game.Stack;
         }
     }
 }
